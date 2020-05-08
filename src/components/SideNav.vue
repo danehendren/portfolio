@@ -5,8 +5,13 @@
       <div class="px-3 py-2">
         <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
         <div id="nav">
-          <router-link to="/">Portfolio</router-link> |
-          <router-link to="/about">About</router-link>
+          <b-container class="bv-example-row">
+            <b-row class="justify-content-md-center">
+              <b-col cols="12" class="mb-2"><router-link to="/">Portfolio</router-link></b-col>
+              <b-col cols="12" class="mb-2"><router-link to="/about">About</router-link></b-col>
+              <b-col cols="12" class="mb-2"><router-link to="/about">Contact</router-link></b-col>
+            </b-row>
+          </b-container>
         </div>
       </div>
     </b-sidebar>
