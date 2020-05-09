@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <SideNav :mobile="mobile"/>
+    <Contact/>
     <router-view class="current-view"/>
   </div>
 </template>
 
 <script>
 import SideNav from '@/components/SideNav'
+import Contact from '@/components/Contact'
 export default {
   name: 'App',
   components: {
-    SideNav
+    SideNav,
+    Contact
   },
   mixins: [],
   data () {

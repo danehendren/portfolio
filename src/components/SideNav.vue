@@ -9,7 +9,7 @@
             <b-row class="justify-content-md-center">
               <b-col cols="12" class="mb-2"><router-link to="/">Portfolio</router-link></b-col>
               <b-col cols="12" class="mb-2"><router-link to="/about">About</router-link></b-col>
-              <b-col cols="12" class="mb-2"><router-link to="/about">Contact</router-link></b-col>
+              <b-col cols="12" class="mb-2"><router-link to="/contact">Contact</router-link></b-col>
             </b-row>
           </b-container>
         </div>
