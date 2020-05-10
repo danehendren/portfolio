@@ -8,12 +8,10 @@
 
 <script>
 import SideNav from '@/components/SideNav'
-import Contact from '@/components/Contact'
 export default {
   name: 'App',
   components: {
-    SideNav,
-    Contact
+    SideNav
   },
   mixins: [],
   data () {
@@ -49,7 +47,7 @@ body {
 #app {
   height: 100%;
   width: 100%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: PT Sans Narrow, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -57,14 +55,16 @@ body {
 }
 
 #nav {
-  padding: 30px;
+  padding: 70px;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #000000;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #E86E0E;
     }
   }
 }

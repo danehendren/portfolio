@@ -1,15 +1,21 @@
 <template>
   <div>
     <b-button v-if="mobile" v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-    <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" title="Ira Stuff" :width="navWidth">
+    <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" :width="navWidth">
+      <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
         <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
         <div id="nav">
-          <b-container class="bv-example-row">
-            <b-row class="justify-content-md-center">
-              <b-col cols="12" class="mb-2"><router-link to="/">Portfolio</router-link></b-col>
-              <b-col cols="12" class="mb-2"><router-link to="/about">About</router-link></b-col>
-              <b-col cols="12" class="mb-2"><router-link to="/contact">Contact</router-link></b-col>
+          <b-container>
+            <b-row>
+              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/">portfolio</router-link></b-col>
+              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/about">about</router-link></b-col>
+              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/contact">contact</router-link></b-col>
+            </b-row>
+            <b-row class="mt-4">
+              <b-col cols="4">Item</b-col>
+              <b-col cols="4">Item</b-col>
+              <b-col cols="4">Item</b-col>
             </b-row>
           </b-container>
         </div>
@@ -58,4 +64,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.logo {
+  height: 20%;
+  width: auto;
+}
 </style>
