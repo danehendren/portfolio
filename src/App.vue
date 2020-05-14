@@ -35,8 +35,9 @@ export default {
       })
     },
     setupContentful () {
-      const spaceId = 'paefqvuurocg'
-      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
+      // Dane see our shared doc for keys
+      const spaceId = ''
+      const accessToken = ''
 
       // contentful.js v4.x.x
       const contentful = require('contentful')
