@@ -2,7 +2,7 @@
   <div class="home">
     <div class="row" v-if="contentfulImages">
       <!-- all assets src path -->
-      <img class="portfolio-image" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt="">
+      <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt="">
 
       <!-- portfolioImages content type src path -->
       <!-- <img class="portfolio-image" v-for="image in contentfulImages" :key="image.id" :src="image.fields.image.fields.file.url" alt=""> -->
@@ -43,7 +43,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .portfolio-image {
-  height: 300px;
-  width: 300px;
+  height: 100%;
+  width: 15%;
+  border-radius: 2%;
+  border: 4px solid lightblue;
+  
 }
 </style>
