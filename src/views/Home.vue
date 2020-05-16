@@ -1,11 +1,12 @@
 <template>
   <div class="home">
-    <div class="row" v-if="contentfulImages">
+    <div class="row p-4" v-if="contentfulImages">
       <!-- all assets src path -->
-      <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt="">
-
+      <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
       <!-- portfolioImages content type src path -->
-      <!-- <img class="portfolio-image" v-for="image in contentfulImages" :key="image.id" :src="image.fields.image.fields.file.url" alt=""> -->
+        <b-img class="portfolio-image m-3" fluid rounded v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img>
+      <!-- <b-img alt="Profile Image" class="profile mt-5" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img> -->
+
     </div>
   </div>
 </template>
@@ -45,8 +46,8 @@ export default {
 .portfolio-image {
   height: 100%;
   width: 15%;
-  border-radius: 2%;
-  border: 4px solid lightblue;
-  
+  // object-fit: cover;
+  // border-radius: 2%;
+  border: 2px solid lightcoral;
 }
 </style>
