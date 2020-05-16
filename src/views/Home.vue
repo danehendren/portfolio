@@ -47,6 +47,5 @@ export default {
   width: 15%;
   border-radius: 2%;
   border: 4px solid lightblue;
-  
 }
 </style>
