@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <SideNav :mobile="mobile"/>
-    <Contact/>
     <router-view class="current-view" :contentfulImages="contentfulImages"/>
   </div>
 </template>

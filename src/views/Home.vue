@@ -4,15 +4,21 @@
       <!-- all assets src path -->
       <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
       <!-- portfolioImages content type src path -->
-        <b-img class="portfolio-image m-3" fluid rounded v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img>
+        <b-img class="portfolio-image m-3" @click="setIndex(imageIndex)" fluid rounded v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img>
+      <CoolLightBox
+        :items="imageLinks"
+        :index="index"
+        loop
+        @close="index = null">
+      </CoolLightBox>
       <!-- <b-img alt="Profile Image" class="profile mt-5" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img> -->
-
     </div>
   </div>
 </template>
 
 <script>
-
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 export default {
   name: 'Home',
   props: {
@@ -22,16 +28,33 @@ export default {
     }
   },
   components: {
+    CoolLightBox
   },
   data () {
     return {
-      images: null
+      images: null,
+      index: null
+    }
+  },
+  computed: {
+    imageLinks () {
+      const links = []
+      for (let index = 0; index < this.contentfulImages.length; index++) {
+        const element = this.contentfulImages[index].fields.file.url
+        console.log('mine', element)
+        links.push(element)
+      }
+      console.log('my links', links)
+      return links
     }
   },
   mounted () {
     console.log('contentfulImages', this.contentfulImages)
   },
   methods: {
+    setIndex (index) {
+      this.index = index
+    }
   },
   watch: {
     contentfulImages () {
@@ -48,6 +71,6 @@ export default {
   width: 15%;
   // object-fit: cover;
   // border-radius: 2%;
-  border: 2px solid lightcoral;
+  // border: 2px solid lightcoral;
 }
 </style>
