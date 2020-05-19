@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-button v-if="mobile" v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+    <!-- <b-button v-if="mobile" v-b-toggle.sidebar-1><b-img class="ham" fluid thumbnail :src="require('../assets/hamburger.png')"></b-img></b-button> -->
+    <div v-if="mobile" v-b-toggle.sidebar-1><b-img class="ham" fluid thumbnail :src="require('../assets/hamburger.png')"></b-img></div>
     <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" :width="navWidth">
       <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
@@ -67,5 +68,10 @@ export default {
 .logo {
   height: 20%;
   width: auto;
+}
+.ham{
+  height: 40px;
+  width: 40px;
+  float: right;
 }
 </style>
