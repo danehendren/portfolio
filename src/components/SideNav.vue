@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <b-button v-if="mobile" v-b-toggle.sidebar-1><b-img class="ham" fluid thumbnail :src="require('../assets/hamburger.png')"></b-img></b-button> -->
-    <div v-if="mobile" v-b-toggle.sidebar-1><b-img class="ham" fluid thumbnail :src="require('../assets/hamburger.png')"></b-img></div>
+    <div v-if="mobile" v-b-toggle.sidebar-1></div>
     <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" :width="navWidth">
       <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
@@ -14,9 +14,9 @@
               <b-col cols="12" class="d-flex justify-content-start"><router-link to="/contact">contact</router-link></b-col>
             </b-row>
             <b-row class="mt-4">
-              <b-col cols="4">Item</b-col>
-              <b-col cols="4">Item</b-col>
-              <b-col cols="4">Item</b-col>
+              <b-col cols="6"><a href="https://www.etsy.com/shop/DerIllufuchs">Etsy</a></b-col>
+              <b-col cols="6"><a href="https://www.instagram.com/illufuchs/">IG</a></b-col>
+              <b-col cols="12" v-on:click="emailMe">Click to E-Mail Me</b-col>
             </b-row>
           </b-container>
         </div>
@@ -47,6 +47,9 @@ export default {
   methods: {
     hideCloseIconOnDesktop () {
       document.querySelector('.b-sidebar-header .close').style.display = !this.mobile ? 'none' : 'inline-block'
+    },
+    emailMe: function () {
+      window.location.href = 'mailto:irinaschaefer.4@gmx.de'
     }
   },
   mounted () {

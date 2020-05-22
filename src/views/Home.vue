@@ -5,6 +5,8 @@
       <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
       <!-- portfolioImages content type src path -->
         <b-img class="portfolio-image m-3" @click="setIndex(imageIndex)" fluid rounded v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img>
+        <!-- <b-col sm="12" lg="6"><b-img class="portfolio-image m-3" @click="setIndex(imageIndex)" fluid rounded v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img></b-col> -->
+
       <CoolLightBox
         :items="imageLinks"
         :index="index"
@@ -68,7 +70,7 @@ export default {
 <style scoped lang="scss">
 .portfolio-image {
   height: 100%;
-  width: 15%;
+  width: 25%;
   // object-fit: cover;
   // border-radius: 2%;
   // border: 2px solid lightcoral;
