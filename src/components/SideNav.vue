@@ -1,22 +1,21 @@
 <template>
   <div>
-    <!-- <b-button v-if="mobile" v-b-toggle.sidebar-1><b-img class="ham" fluid thumbnail :src="require('../assets/hamburger.png')"></b-img></b-button> -->
     <div v-if="mobile" v-b-toggle.sidebar-1></div>
     <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" :width="navWidth">
-      <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
+      <!-- <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img> -->
       <div class="px-3 py-2">
-        <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
+          <b-img alt="#" class="ph_logo" :src="require('../assets/illufuchs.png')"></b-img>
         <div id="nav">
           <b-container>
             <b-row>
-              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/">portfolio</router-link></b-col>
-              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/about">about</router-link></b-col>
-              <b-col cols="12" class="d-flex justify-content-start"><router-link to="/contact">contact</router-link></b-col>
+              <b-col cols="12" class="d-flex justify-content-end"><router-link to="/">portfolio</router-link></b-col>
+              <b-col cols="12" class="d-flex justify-content-end"><router-link to="/about">about</router-link></b-col>
+              <b-col cols="12" class="d-flex justify-content-end"><router-link to="/contact">contact</router-link></b-col>
             </b-row>
             <b-row class="mt-4">
-              <b-col cols="6"><a href="https://www.etsy.com/shop/DerIllufuchs">Etsy</a></b-col>
-              <b-col cols="6"><a href="https://www.instagram.com/illufuchs/">IG</a></b-col>
-              <b-col cols="12" v-on:click="emailMe">Click to E-Mail Me</b-col>
+              <!-- <b-col cols="4"><a href="https://www.etsy.com/shop/DerIllufuchs" target="_blank"><b-img alt="Logo Image" class="logo" thumbnail :src="require('../assets/logos/etsyOne.png')"></b-img></a></b-col> -->
+              <!-- <b-col cols="4"><a href="https://www.instagram.com/illufuchs/" target="_blank"><b-img alt="Logo Image" class="logo" thumbnail :src="require('../assets/logos/igOne.png')"></b-img></a></b-col> -->
+              <!-- <b-col cols="4" v-on:click="emailMe"><b-img alt="Logo Image" class="logo" thumbnail :src="require('../assets/logos/mailOne.png')"></b-img></!-->
             </b-row>
           </b-container>
         </div>
@@ -41,7 +40,7 @@ export default {
   },
   computed: {
     navWidth () {
-      return this.mobile ? '100%' : '320px'
+      return this.mobile ? '100%' : '350px'
     }
   },
   methods: {
@@ -68,13 +67,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.logo {
-  height: 20%;
+// .ham{
+//   height: 40px;
+//   width: 40px;
+//   float: right;
+// }
+.ph_logo {
   width: auto;
+  height: 200px;
 }
-.ham{
-  height: 40px;
-  width: 40px;
-  float: right;
+#nav {
+  min-width: 250px;
+  // background-color: lightblue
 }
 </style>

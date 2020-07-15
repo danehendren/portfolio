@@ -1,20 +1,31 @@
 <template>
   <div class="home">
-    <div class="row p-4" v-if="contentfulImages">
-      <!-- all assets src path -->
-      <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
-      <!-- portfolioImages content type src path -->
-        <b-img class="portfolio-image m-3" @click="setIndex(imageIndex)" fluid rounded v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img>
-        <!-- <b-col sm="12" lg="6"><b-img class="portfolio-image m-3" @click="setIndex(imageIndex)" fluid rounded v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img></b-col> -->
-
+    <div v-if="contentfulImages">
+      <b-container>
+        <b-row class="justify-content-center">
+          <!-- <b-img alt="#" class="tester" :src="require('../assets/illufuchs.png')"></b-img> -->
+          <!-- <b-img class="tester" @click="setIndex(imageIndex)" v-for="(image,imageIndex) in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""></b-img> -->
+        </b-row>
+      </b-container>
       <CoolLightBox
         :items="imageLinks"
         :index="index"
         loop
         @close="index = null">
       </CoolLightBox>
-      <!-- <b-img alt="Profile Image" class="profile mt-5" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img> -->
     </div>
+    <b-container>
+      <b-row>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -69,10 +80,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .portfolio-image {
-  height: 100%;
-  width: 25%;
+  // height: auto;
+  // width: 250px;
   // object-fit: cover;
   // border-radius: 2%;
   // border: 2px solid lightcoral;
+}
+.tester {
+  object-fit: none;
+  height: 250px;
+  width: 250px;
+  margin: 10px;
 }
 </style>
