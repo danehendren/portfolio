@@ -5,7 +5,7 @@
           <b-img alt="#" :src="require('../assets/ph_photo.jpg')"></b-img>
         </b-col>
     </b-row>
-    <b-row class="text-center">
+    <b-row class="vh-100 text-center" align-h="center">
       <b-col>
         <p>they just had some text they just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some text</p>
       </b-col>

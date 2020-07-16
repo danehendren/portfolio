@@ -16,14 +16,14 @@
     </div>
     <b-container>
       <b-row>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/drawings/moonlight.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-1.png')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/posters/digital-poster-illufuchs-2.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-3.png')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-4.png')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/bleach/bleach-leggins-artist-1.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/book/hand-painting-illufuchs-2.png')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/chars/hand-drawn-dog-1.jpg')"></b-img>
+        <b-img alt="#" class="tester" :src="require('../assets/categories/chars/digital-drawing-1.jpg')"></b-img>
       </b-row>
     </b-container>
   </div>
