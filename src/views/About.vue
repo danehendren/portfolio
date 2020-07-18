@@ -1,14 +1,11 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-row class="vh-100 text-center" align-v="center" align-h="center">
         <b-col cols="5">
-          <b-img alt="#" :src="require('../assets/ph_photo.jpg')"></b-img>
+          <b-img alt="#" fluid :src="require('../assets/ph_photo.jpg')"></b-img>
+          <h2>Irina Schaefer</h2>
+          <p>START they just had some text they just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some text</p>
         </b-col>
-    </b-row>
-    <b-row class="vh-100 text-center" align-h="center">
-      <b-col>
-        <p>they just had some text they just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some textthey just had some text</p>
-      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -16,7 +13,7 @@
 export default {
   data () {
     return {
-      mainProps: { blank: true, width: 75, height: 75, class: 'm1' }
+      // mainProps: { blank: true, width: 75, height: 75, class: 'm1' }
     }
   }
 }

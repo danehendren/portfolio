@@ -99,9 +99,10 @@ body {
   height: 100%;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: calc(100% - 320px);
     margin-left: 320px;
+    padding: 0 30px;
   }
 }
 </style>
