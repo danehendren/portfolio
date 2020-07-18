@@ -15,15 +15,15 @@
       </CoolLightBox>
     </div>
     <b-container>
-      <b-row>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-1.png')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/posters/digital-poster-illufuchs-2.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-3.png')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/print/print-lettering-illufuchs-4.png')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/bleach/bleach-leggins-artist-1.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/book/hand-painting-illufuchs-2.png')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/chars/hand-drawn-dog-1.jpg')"></b-img>
-        <b-img alt="#" class="tester" :src="require('../assets/categories/chars/digital-drawing-1.jpg')"></b-img>
+      <b-row >
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/print/print-lettering-illufuchs-1.png')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/posters/digital-poster-illufuchs-2.jpg')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/print/print-lettering-illufuchs-3.png')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/print/print-lettering-illufuchs-4.png')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/bleach/bleach-leggins-artist-1.jpg')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/book/hand-painting-illufuchs-2.png')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/chars/hand-drawn-dog-1.jpg')"></b-img>
+          <b-img alt="#" class="tester"  fluid center :src="require('../assets/categories/chars/digital-drawing-1.jpg')"></b-img>
       </b-row>
     </b-container>
   </div>
@@ -46,7 +46,8 @@ export default {
   data () {
     return {
       images: null,
-      index: null
+      index: null,
+      counter: 0
     }
   },
   computed: {
@@ -79,13 +80,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.portfolio-image {
-  // height: auto;
-  // width: 250px;
-  // object-fit: cover;
-  // border-radius: 2%;
-  // border: 2px solid lightcoral;
-}
 .tester {
   object-fit: none;
   height: 250px;
