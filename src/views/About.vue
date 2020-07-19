@@ -1,6 +1,5 @@
 <template>
-  <b-container>
-    <b-row align-v="center" align-h="center">
+    <b-row noGutters>
       <div class="about">
         <!-- <h1 class="mt-3">Optional Title</h1> -->
         <b-img alt="Profile Image" class="profile mt-5" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
@@ -12,10 +11,10 @@
         </div>
       </div>
     </b-row>
-  </b-container>
 </template>
 <script>
 export default {
+  name: 'About',
   data () {
     return {
       mainProps: { blank: true, width: 75, height: 75, class: 'm1' }
