@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SideNav :mobileTabletDesktop="mobileTabletDesktop"/>
-    <router-view class="current-view" :contentfulImages="contentfulImages"/>
+    <router-view class="current-view" :contentfulClient="contentfulClient"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       windowWidth: window.screen.width,
-      contentfulImages: null
+      contentfulClient: this.setupContentfulClient()
     }
   },
   computed: {
@@ -26,7 +26,6 @@ export default {
   },
   mounted () {
     this.addWindowEventListener()
-    this.setupContentful()
   },
   methods: {
     addWindowEventListener () {
@@ -34,30 +33,18 @@ export default {
         this.windowWidth = e.target.screen.width
       })
     },
-    setupContentful () {
+    setupContentfulClient () {
       // Dane see our shared doc for keys
       const spaceId = 'paefqvuurocg'
       const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
       // contentful.js v4.x.x
       const contentful = require('contentful')
-      const client = contentful.createClient({
+      return contentful.createClient({
         // This is the space ID. A space is like a project folder in Contentful terms
         space: spaceId,
         // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
         accessToken: accessToken
       })
-
-      // For all assets use: client.getAssets()
-      // client.getEntries({
-      //   content_type: 'portfolioImages'
-      // })
-      client.getAssets()
-        .then((response) => this.updateImages(response.items))
-        .catch(console.error)
-    },
-    updateImages (responseItems) {
-      console.log(responseItems)
-      this.contentfulImages = responseItems
     }
   },
   watch: {}

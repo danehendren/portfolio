@@ -1,19 +1,26 @@
 <template>
   <div class="home">
-    <router-link to="/illustrations">Illustrations</router-link>
+    <!-- Temp Routing (DELETE BEFORE PROD PUSH) -->
+    <router-link to="/posters">Posters</router-link>
     <br>
-    <router-link to="/graphic-design">Graphic Design</router-link>
+    <router-link to="/bleach">Leggings</router-link>
     <br>
-    <router-link to="/leggings">Leggings</router-link>
+    <router-link to="/book">Books</router-link>
+    <br>
+    <router-link to="/lettering">Lettering</router-link>
+    <br>
+    <router-link to="/chars">Characters</router-link>
+    <br>
+    <router-link to="/popup">Pop-up Book</router-link>
 
     <div class="row no-gutters" v-if="contentfulImages">
       <!-- all assets src path -->
-      <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt="">
+      <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
 
-      <!-- portfolioImages content type src path -->
-      <!-- <img class="portfolio-image" v-for="image in contentfulImages" :key="image.id" :src="image.fields.image.fields.file.url" alt=""> -->
+      <!-- content type src path -->
+      <img class="portfolio-image" v-for="image in contentfulImages" :key="image.id" :src="image.fields.image.fields.file.url" alt="">
+      <Portfolio />
     </div>
-    <Portfolio />
   </div>
 </template>
 
@@ -23,23 +30,37 @@ import Portfolio from '@/components/Portfolio'
 export default {
   name: 'Home',
   props: {
-    contentfulImages: {
-      type: Array,
-      default: null
-    }
+    contentfulClient: Object
   },
   components: {
     Portfolio
   },
   data () {
     return {
-      images: null
+      contentfulImages: null,
+      portfolioType: 'home'
     }
   },
   mounted () {
-    console.log('contentfulImages', this.contentfulImages)
   },
   methods: {
+    getContentfulImages (contentType) {
+      console.log('contentType', contentType)
+      // For all assets use: client.getAssets()
+      this.contentfulClient.getEntries({
+        content_type: contentType
+      })
+        .then((response) => this.updateImages(response.items))
+        .catch(console.error)
+
+      // client.getAssets()
+      //   .then((response) => this.updateImages(response.items))
+      //   .catch(console.error)
+    },
+    updateImages (responseItems) {
+      console.log(responseItems)
+      this.contentfulImages = responseItems
+    }
   },
   watch: {
     contentfulImages () {
@@ -49,6 +70,7 @@ export default {
       // react to route changes...
       console.log('from: ', from.fullPath)
       console.log('to: ', to.fullPath)
+      this.getContentfulImages(to.fullPath.replace(/\//, ''))
     }
   }
 }
