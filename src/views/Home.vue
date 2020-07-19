@@ -1,20 +1,94 @@
 <template>
   <div class="home">
     <!-- Temp Routing (DELETE BEFORE PROD PUSH) -->
-    <router-link to="/posters">Posters</router-link>
-    <br>
-    <router-link to="/bleach">Leggings</router-link>
-    <br>
-    <router-link to="/book">Books</router-link>
-    <br>
-    <router-link to="/lettering">Lettering</router-link>
-    <br>
-    <router-link to="/chars">Characters</router-link>
-    <br>
-    <router-link to="/popup">Pop-up Book</router-link>
-
+    <div v-if="!showMenu" class="row no-gutters">
+      <div class="col-6 col-lg-3">
+        <router-link to="/posters">
+          <div class="img-container">
+            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Posters</div>
+            </div>
+          </div>
+        </router-link>
+      </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/bleach">
+        <div class="img-container">
+            <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Leggings</div>
+            </div>
+        </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/book">
+        <div class="img-container">
+            <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Books</div>
+            </div>
+        </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/lettering">
+        <div class="img-container">
+            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">lettering</div>
+            </div>
+          </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/chars">
+        <div class="img-container">
+            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Characters</div>
+            </div>
+          </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/popup">
+        <div class="img-container">
+            <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Pop Up Book</div>
+            </div>
+          </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/illustrator">
+        <div class="img-container">
+            <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">Illustrator</div>
+            </div>
+          </div>
+      </router-link>
+    </div>
+    <div class="col-6 col-lg-3">
+      <router-link to="/photoshop">
+        <div class="img-container">
+            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text">photoshop</div>
+            </div>
+          </div>
+      </router-link>
+    </div>
+  </div>
     <Loader v-if="showLoader"/>
-
+  <div>
+        <router-link to="/">
+          <button>Back Please</button>
+        </router-link>
+    </div>
     <CoolLightBox
       v-if="imagesToRender && !showLoader"
       :items="imageLinks"
@@ -50,7 +124,8 @@ export default {
       imagesToRender: null,
       imageIndex: null,
       contentTypes: ['posters', 'bleach', 'book', 'lettering', 'chars', 'popup'],
-      showLoader: false
+      showLoader: false,
+      showMenu: this.$route.fullPath.length > 1
     }
   },
   mounted () {
@@ -72,8 +147,8 @@ export default {
   methods: {
     setupContentfulClient () {
       // Dane see our shared doc for keys
-      const spaceId = ''
-      const accessToken = ''
+      const spaceId = 'paefqvuurocg'
+      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
       // contentful.js v4.x.x
       const contentful = require('contentful')
       return contentful.createClient({
@@ -123,8 +198,7 @@ export default {
     },
     $route (to, from) {
       // react to route changes...
-      console.log('from: ', from.fullPath)
-      console.log('to: ', to.fullPath)
+      this.showMenu = to.fullPath.length > 1
       this.loadPath(to)
     }
   }
@@ -133,4 +207,43 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.img-container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: lightblue;
+}
+
+.img-container:hover .overlay {
+  opacity: 0.8;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 </style>
