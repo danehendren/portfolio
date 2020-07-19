@@ -14,13 +14,22 @@
     <router-link to="/popup">Pop-up Book</router-link>
 
     <Loader v-if="showLoader"/>
-    <Portfolio v-if="imagesToRender && !showLoader" :images="imagesToRender"/>
+    <CoolLightBox
+      v-if="imagesToRender && !showLoader"
+      :items="imageLinks"
+      :index="imageIndex"
+      loop
+      @close="imageIndex = null">
+    </CoolLightBox>
+    <Portfolio v-if="imagesToRender && !showLoader" :images="imagesToRender" @setIndex="imageIndex = $event"/>
   </div>
 </template>
 
 <script>
 import Portfolio from '@/components/Portfolio'
 import Loader from '@/components/Loader'
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 
 export default {
   name: 'Home',
@@ -28,7 +37,8 @@ export default {
   },
   components: {
     Portfolio,
-    Loader
+    Loader,
+    CoolLightBox
   },
   data () {
     return {
@@ -36,12 +46,26 @@ export default {
       contentfulImages: {},
       currentPortfolioType: null,
       imagesToRender: null,
+      imageIndex: null,
       contentTypes: ['posters', 'bleach', 'book', 'lettering', 'chars', 'popup'],
       showLoader: false
     }
   },
   mounted () {
     this.loadPath()
+  },
+  computed: {
+    imageLinks () {
+      const links = []
+      if (this.imagesToRender) {
+        for (let index = 0; index < this.imagesToRender.length; index++) {
+          console.log(this.imagesToRender[index])
+          const element = this.imagesToRender[index].fields.image.fields.file.url
+          links.push(element)
+        }
+      }
+      return links
+    }
   },
   methods: {
     setupContentfulClient () {

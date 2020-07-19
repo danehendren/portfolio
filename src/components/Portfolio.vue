@@ -1,10 +1,7 @@
 <template>
   <div>
-    <!-- all assets src path -->
-    <!-- <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt=""> -->
-
     <!-- content type src path -->
-    <img class="portfolio-image" v-for="image in images" :key="image.id" :src="image.fields.image.fields.file.url" alt="">
+    <img class="portfolio-image" v-for="(image, imageIndex) in images" :key="image.id" @click="$emit('setIndex', imageIndex)" :src="image.fields.image.fields.file.url" alt="">
   </div>
 </template>
 
