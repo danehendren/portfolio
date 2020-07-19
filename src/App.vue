@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SideNav :mobileTabletDesktop="mobileTabletDesktop"/>
-    <router-view class="current-view" :contentfulClient="contentfulClient"/>
+    <router-view class="current-view"/>
   </div>
 </template>
 
@@ -15,8 +15,7 @@ export default {
   mixins: [],
   data () {
     return {
-      windowWidth: window.screen.width,
-      contentfulClient: this.setupContentfulClient()
+      windowWidth: window.screen.width
     }
   },
   computed: {
@@ -31,19 +30,6 @@ export default {
     addWindowEventListener () {
       window.addEventListener('resize', (e) => {
         this.windowWidth = e.target.screen.width
-      })
-    },
-    setupContentfulClient () {
-      // Dane see our shared doc for keys
-      const spaceId = 'paefqvuurocg'
-      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
-      // contentful.js v4.x.x
-      const contentful = require('contentful')
-      return contentful.createClient({
-        // This is the space ID. A space is like a project folder in Contentful terms
-        space: spaceId,
-        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-        accessToken: accessToken
       })
     }
   },

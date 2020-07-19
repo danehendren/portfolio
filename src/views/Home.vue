@@ -30,20 +30,34 @@ import Portfolio from '@/components/Portfolio'
 export default {
   name: 'Home',
   props: {
-    contentfulClient: Object
   },
   components: {
     Portfolio
   },
   data () {
     return {
+      contentfulClient: this.setupContentfulClient(),
       contentfulImages: null,
-      portfolioType: 'home'
+      portfolioType: 'home',
+      contentTypes: ['posters', 'bleach', 'book', 'lettering', 'chars', 'popup']
     }
   },
   mounted () {
   },
   methods: {
+    setupContentfulClient () {
+      // Dane see our shared doc for keys
+      const spaceId = 'paefqvuurocg'
+      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
+      // contentful.js v4.x.x
+      const contentful = require('contentful')
+      return contentful.createClient({
+        // This is the space ID. A space is like a project folder in Contentful terms
+        space: spaceId,
+        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+        accessToken: accessToken
+      })
+    },
     getContentfulImages (contentType) {
       console.log('contentType', contentType)
       // For all assets use: client.getAssets()
@@ -70,7 +84,9 @@ export default {
       // react to route changes...
       console.log('from: ', from.fullPath)
       console.log('to: ', to.fullPath)
-      this.getContentfulImages(to.fullPath.replace(/\//, ''))
+
+      const toPath = to.fullPath.replace(/\//, '')
+      this.contentTypes.includes(toPath) ? this.getContentfulImages(toPath) : console.log('contentType does not exist')
     }
   }
 }
