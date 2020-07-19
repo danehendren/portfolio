@@ -14,6 +14,7 @@
     <router-link to="/popup">Pop-up Book</router-link>
 
     <Loader v-if="showLoader"/>
+
     <CoolLightBox
       v-if="imagesToRender && !showLoader"
       :items="imageLinks"
@@ -21,6 +22,7 @@
       loop
       @close="imageIndex = null">
     </CoolLightBox>
+
     <Portfolio v-if="imagesToRender && !showLoader" :images="imagesToRender" @setIndex="imageIndex = $event"/>
   </div>
 </template>
@@ -70,8 +72,8 @@ export default {
   methods: {
     setupContentfulClient () {
       // Dane see our shared doc for keys
-      const spaceId = 'paefqvuurocg'
-      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
+      const spaceId = ''
+      const accessToken = ''
       // contentful.js v4.x.x
       const contentful = require('contentful')
       return contentful.createClient({
