@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="row" v-if="contentfulImages">
+    <div class="row no-gutters" v-if="contentfulImages">
       <!-- all assets src path -->
       <img class="portfolio-image m-2" v-for="image in contentfulImages" :key="image.id" :src="image.fields.file.url" alt="">
 

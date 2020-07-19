@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-button v-if="mobile" v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-    <b-sidebar :visible="showNav" :no-close-on-route-change="!mobile" :no-close-on-esc="!mobile" id="sidebar-1" :width="navWidth">
+    <b-button v-if="mobileTabletDesktop === 'mobile'" v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+    <b-sidebar :visible="showNav" :no-close-on-route-change="mobileTabletDesktop !== 'mobile'" :no-close-on-esc="mobileTabletDesktop !== 'mobile'" id="sidebar-1" :width="navWidth">
       <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
         <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
@@ -28,24 +28,24 @@
 export default {
   name: 'SideNav',
   props: {
-    mobile: {
-      type: Boolean,
-      default: true
+    mobileTabletDesktop: {
+      type: String,
+      default: 'mobile'
     }
   },
   data () {
     return {
-      showNav: !this.mobile // if initially NOT mobile show Nav
+      showNav: this.mobileTabletDesktop !== 'mobile' // if initially NOT mobile show Nav
     }
   },
   computed: {
     navWidth () {
-      return this.mobile ? '100%' : '320px'
+      return this.mobileTabletDesktop === 'mobile' ? '100%' : this.mobileTabletDesktop === 'tablet' ? '28%' : '320px'
     }
   },
   methods: {
     hideCloseIconOnDesktop () {
-      document.querySelector('.b-sidebar-header .close').style.display = !this.mobile ? 'none' : 'inline-block'
+      document.querySelector('.b-sidebar-header .close').style.display = this.mobileTabletDesktop !== 'mobile' ? 'none' : 'inline-block'
     }
   },
   mounted () {
@@ -54,9 +54,9 @@ export default {
     })
   },
   watch: {
-    mobile () {
+    mobileTabletDesktop () {
       this.hideCloseIconOnDesktop()
-      this.showNav = !this.mobile
+      this.showNav = this.mobileTabletDesktop !== 'mobile'
     }
   }
 }
@@ -64,8 +64,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+#nav {
+  padding-top: 30px;
+
+  a {
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #000000;
+    text-decoration: none;
+
+    &.router-link-exact-active {
+      color: #E86E0E;
+    }
+  }
+}
+
 .logo {
-  height: 20%;
-  width: auto;
+  height: auto;
+  width: 75%;
+
+  @media (min-width: 768px) {
+    width: calc(100% - 31px);
+  }
 }
 </style>

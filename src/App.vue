@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <SideNav :mobile="mobile"/>
-    <Contact/>
+    <SideNav :mobileTabletDesktop="mobileTabletDesktop"/>
     <router-view class="current-view" :contentfulImages="contentfulImages"/>
   </div>
 </template>
@@ -21,8 +20,8 @@ export default {
     }
   },
   computed: {
-    mobile () {
-      return this.windowWidth < 768
+    mobileTabletDesktop () {
+      return this.windowWidth < 768 ? 'mobile' : this.windowWidth < 1024 ? 'tablet' : 'desktop'
     }
   },
   mounted () {
@@ -81,28 +80,21 @@ body {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 70px;
-
-  a {
-    font-weight: 400;
-    font-size: 1.75rem;
-    color: #000000;
-    text-decoration: none;
-
-    &.router-link-exact-active {
-      color: #E86E0E;
-    }
-  }
-}
-
 .current-view {
   height: 100%;
   width: 100%;
+  overflow: scroll;
 
   @media (min-width: 768px) {
-    width: calc(100% - 320px);
-    margin-left: 320px;
+    width: calc(100% - 28%) !important;
+    margin-left: 28% !important;
+    padding: 0px 35px 0 25px !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: calc(100% - 320px) !important;
+    margin-left: 320px !important;
+    padding: 0px 35px 0 25px !important;
   }
 }
 </style>
