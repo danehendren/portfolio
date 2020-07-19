@@ -12,6 +12,10 @@ const routes = [
     component: Home
   },
   {
+    path: '/:portfolio', // dynamic segments start with a colon
+    component: Home
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
