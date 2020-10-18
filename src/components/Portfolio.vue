@@ -1,10 +1,17 @@
 <template>
-  <div class="row portfolio-container">
-    <div class="col-sm-3 portfolio-image-container" v-for="(image, imageIndex) in images" :key="image.id">
-      <!-- content type src path -->
-      <img class="portfolio-image" @click="$emit('setIndex', imageIndex)" :src="image.fields.image.fields.file.url" alt="">
-      <div class="portfolio-title">{{ image.fields.title }}</div>
-      <!-- <a href="#"><span class="fa fa-search-plus fa-5x"></span></a> -->
+  <div>
+    <div class="col-12 d-flex justify-content-start my-3">
+      <b-link v-if="!showMenu & !showLoader" size="sm" class="text-left text-dark d-block" to="/" variant="outline-dark">
+        <b-icon icon="arrow-left-short" aria-hidden="true"></b-icon> Back to menu
+      </b-link>
+    </div>
+    <div class="row portfolio-container">
+      <div class="col-sm-3 portfolio-image-container" v-for="(image, imageIndex) in images" :key="image.id">
+        <!-- content type src path -->
+        <img class="portfolio-image" @click="$emit('setIndex', imageIndex)" :src="image.fields.image.fields.file.url" alt="">
+        <div class="portfolio-title">{{ image.fields.title }}</div>
+        <!-- <a href="#"><span class="fa fa-search-plus fa-5x"></span></a> -->
+      </div>
     </div>
   </div>
 </template>

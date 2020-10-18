@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <!-- Temp Routing (DELETE BEFORE PROD PUSH) -->
+    <!-- Portfolio Navigtation -->
     <div v-if="showMenu" class="row no-gutters">
       <div class="col-6 col-lg-3">
         <router-link to="/posters">
@@ -83,10 +83,8 @@
         </router-link>
       </div>
     </div>
+
     <Loader v-if="showLoader"/>
-    <router-link v-if="!showMenu" to="/">
-      <button>Back to menu</button>
-    </router-link>
     <CoolLightBox
       v-if="imagesToRender && !showLoader && !showMenu"
       :items="imageLinks"
