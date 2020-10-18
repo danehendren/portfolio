@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-12 d-flex justify-content-start my-3">
-      <b-link v-if="!showMenu & !showLoader" size="sm" class="text-left text-dark d-block" to="/" variant="outline-dark">
+      <b-link size="sm" class="text-left text-dark d-block" to="/" variant="outline-dark">
         <b-icon icon="arrow-left-short" aria-hidden="true"></b-icon> Back to menu
       </b-link>
     </div>
@@ -72,7 +72,8 @@ export default {
 
     &:hover {
       opacity: .8;
-      box-shadow: -8px 4px 0px white, -10px 6px 0px black, -10px 2.5px 0px black, 12px 12px 0px black;
+      box-shadow: 8px 8px 0px black; //subtle
+      // box-shadow: -8px 4px 0px white, -10px 6px 0px black, -10px 2.5px 0px black, 12px 12px 0px black; //drastic
       border-right: 4px solid black;
       border-bottom: 4px solid black;
     }
