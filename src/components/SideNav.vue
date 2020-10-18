@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mobile-nav d-flex justify-content-between">
+    <div class="mobile-nav d-flex justify-content-between" v-if="mobileTabletDesktop === 'mobile'">
       <a href="/">Irina Schaefer</a>
       <a href="javascript:void(0);" class="icon" onclick="openMenu()" v-if="mobileTabletDesktop === 'mobile'" v-b-toggle.sidebar>
         <i class="fa fa-bars"></i>
