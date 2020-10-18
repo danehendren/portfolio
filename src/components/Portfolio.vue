@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-12 d-flex justify-content-start my-3">
-      <b-link v-if="!showMenu & !showLoader" size="sm" class="text-left text-dark d-block" to="/" variant="outline-dark">
+      <b-link size="sm" class="text-left text-dark d-block" to="/" variant="outline-dark">
         <b-icon icon="arrow-left-short" aria-hidden="true"></b-icon> Back to menu
       </b-link>
     </div>
