@@ -72,7 +72,8 @@ export default {
 
     &:hover {
       opacity: .8;
-      box-shadow: -8px 4px 0px white, -10px 6px 0px black, -10px 2.5px 0px black, 12px 12px 0px black;
+      box-shadow: 8px 8px 0px black; //subtle
+      // box-shadow: -8px 4px 0px white, -10px 6px 0px black, -10px 2.5px 0px black, 12px 12px 0px black; //drastic
       border-right: 4px solid black;
       border-bottom: 4px solid black;
     }
