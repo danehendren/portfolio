@@ -6,8 +6,8 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    <b-sidebar :visible="showNav" :no-close-on-route-change="mobileTabletDesktop !== 'mobile'" :no-close-on-esc="mobileTabletDesktop !== 'mobile'" id="sidebar" :width="navWidth">
-      <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
+    <b-sidebar :visible="showNav" :bg-variant="mobileTabletDesktop !== 'mobile' ? 'white' : light" :no-close-on-route-change="mobileTabletDesktop !== 'mobile'" :no-close-on-esc="mobileTabletDesktop !== 'mobile'" id="sidebar" :width="navWidth">
+      <b-img alt="Logo Image" class="logo mt-2 skew p-0" fluid thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
         <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
         <div id="nav">
@@ -89,8 +89,14 @@ export default {
   width: 75%;
 
   @media (min-width: 768px) {
-    width: calc(100% - 31px);
+    width: calc(100% - 60px);
   }
+}
+
+.skew {
+  transform: skewY(2deg);
+  border: 4px solid black;
+  box-shadow: -8px 4px 0px white, -10px 6px 0px black, -10px 2.5px 0px black, 12px 12px 0px black; //drastic
 }
 
 .mobile-nav {

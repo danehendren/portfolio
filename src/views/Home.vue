@@ -1,5 +1,5 @@
 <template>
-  <div class="home pl-0">
+  <div class="home px-0">
     <!-- Portfolio Navigtation -->
     <div v-if="showMenu" class="row no-gutters">
       <div class="col-6 col-lg-3">
