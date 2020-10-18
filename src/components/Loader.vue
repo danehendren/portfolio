@@ -38,6 +38,10 @@ export default {
   position: relative;
   width: 80px;
   height: 80px;
+
+  @media (max-width: 768px) {
+    top: calc(50% - 85px);
+  }
 }
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;

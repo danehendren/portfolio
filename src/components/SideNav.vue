@@ -1,7 +1,12 @@
 <template>
   <div>
-    <b-button v-if="mobileTabletDesktop === 'mobile'" v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-    <b-sidebar :visible="showNav" :no-close-on-route-change="mobileTabletDesktop !== 'mobile'" :no-close-on-esc="mobileTabletDesktop !== 'mobile'" id="sidebar-1" :width="navWidth">
+    <div class="mobile-nav d-flex justify-content-between">
+      <a href="/">Irina Schaefer</a>
+      <a href="javascript:void(0);" class="icon" onclick="openMenu()" v-if="mobileTabletDesktop === 'mobile'" v-b-toggle.sidebar>
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <b-sidebar :visible="showNav" :no-close-on-route-change="mobileTabletDesktop !== 'mobile'" :no-close-on-esc="mobileTabletDesktop !== 'mobile'" id="sidebar" :width="navWidth">
       <b-img alt="Logo Image" class="logo mt-2" fluid rounded="circle" thumbnail :src="require('../assets/tester.jpg')"></b-img>
       <div class="px-3 py-2">
         <!-- <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img> -->
@@ -85,6 +90,19 @@ export default {
 
   @media (min-width: 768px) {
     width: calc(100% - 31px);
+  }
+}
+
+.mobile-nav {
+  width: 100%;
+  height: 45px;
+  padding: 0 30px;
+  font-size: 25px;
+
+  a {
+    color: black;
+    height: 35px;
+    margin-top: 5px;
   }
 }
 </style>
