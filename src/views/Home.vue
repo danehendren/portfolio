@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Temp Routing (DELETE BEFORE PROD PUSH) -->
-    <div v-if="!showMenu" class="row no-gutters">
+    <div v-if="showMenu" class="row no-gutters">
       <div class="col-6 col-lg-3">
         <router-link to="/posters">
           <div class="img-container">
@@ -12,92 +12,90 @@
           </div>
         </router-link>
       </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/bleach">
-        <div class="img-container">
-            <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">Leggings</div>
-            </div>
-        </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/book">
-        <div class="img-container">
-            <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">Books</div>
-            </div>
-        </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/lettering">
-        <div class="img-container">
-            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">lettering</div>
-            </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/bleach">
+          <div class="img-container">
+              <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Leggings</div>
+              </div>
           </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/chars">
-        <div class="img-container">
-            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">Characters</div>
-            </div>
-          </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/popup">
-        <div class="img-container">
-            <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">Pop Up Book</div>
-            </div>
-          </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/illustrator">
-        <div class="img-container">
-            <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">Illustrator</div>
-            </div>
-          </div>
-      </router-link>
-    </div>
-    <div class="col-6 col-lg-3">
-      <router-link to="/photoshop">
-        <div class="img-container">
-            <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text">photoshop</div>
-            </div>
-          </div>
-      </router-link>
-    </div>
-  </div>
-    <Loader v-if="showLoader"/>
-  <div>
-        <router-link to="/">
-          <button>Back Please</button>
         </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/book">
+          <div class="img-container">
+              <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Books</div>
+              </div>
+          </div>
+        </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/lettering">
+          <div class="img-container">
+              <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">lettering</div>
+              </div>
+            </div>
+        </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/chars">
+          <div class="img-container">
+              <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Characters</div>
+              </div>
+            </div>
+        </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/popup">
+          <div class="img-container">
+              <img src="@/assets/menu/menu2.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Pop Up Book</div>
+              </div>
+            </div>
+        </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/illustrator">
+          <div class="img-container">
+              <img src="@/assets/menu/menu3.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Illustrator</div>
+              </div>
+            </div>
+        </router-link>
+      </div>
+      <div class="col-6 col-lg-3">
+        <router-link to="/photoshop">
+          <div class="img-container">
+              <img src="@/assets/menu/menu1.jpg" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">photoshop</div>
+              </div>
+            </div>
+        </router-link>
+      </div>
     </div>
+    <Loader v-if="showLoader"/>
+    <router-link v-if="!showMenu" to="/">
+      <button>Back to menu</button>
+    </router-link>
     <CoolLightBox
-      v-if="imagesToRender && !showLoader"
+      v-if="imagesToRender && !showLoader && !showMenu"
       :items="imageLinks"
       :index="imageIndex"
       loop
       @close="imageIndex = null">
     </CoolLightBox>
 
-    <Portfolio v-if="imagesToRender && !showLoader" :images="imagesToRender" @setIndex="imageIndex = $event"/>
+    <Portfolio v-if="imagesToRender && !showLoader && !showMenu" :images="imagesToRender" @setIndex="imageIndex = $event"/>
   </div>
 </template>
 
@@ -125,7 +123,7 @@ export default {
       imageIndex: null,
       contentTypes: ['posters', 'bleach', 'book', 'lettering', 'chars', 'popup'],
       showLoader: false,
-      showMenu: this.$route.fullPath.length > 1
+      showMenu: this.$route.name === 'Home'
     }
   },
   mounted () {
@@ -147,8 +145,8 @@ export default {
   methods: {
     setupContentfulClient () {
       // Dane see our shared doc for keys
-      const spaceId = ''
-      const accessToken = ''
+      const spaceId = 'paefqvuurocg'
+      const accessToken = '863d0fa7ba79af2523059f2cee6b8276f63837d12b6d07b6889cfc8ccfbe883c'
       // contentful.js v4.x.x
       const contentful = require('contentful')
       return contentful.createClient({
@@ -198,7 +196,7 @@ export default {
     },
     $route (to, from) {
       // react to route changes...
-      this.showMenu = to.fullPath.length > 1
+      this.showMenu = to.name === 'Home'
       this.loadPath(to)
     }
   }
@@ -228,7 +226,7 @@ export default {
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: lightblue;
+  background-color: white;
 }
 
 .img-container:hover .overlay {
@@ -237,7 +235,7 @@ export default {
 
 .text {
   color: black;
-  font-size: 20px;
+  font-size: 25px;
   position: absolute;
   top: 50%;
   left: 50%;
