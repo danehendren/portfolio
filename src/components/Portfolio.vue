@@ -6,7 +6,7 @@
       </b-link>
     </div>
     <div class="row portfolio-container">
-      <div class="col-sm-3 portfolio-image-container" v-for="(image, imageIndex) in images" :key="image.id">
+      <div class="col-6 col-lg-3 portfolio-image-container" v-for="(image, imageIndex) in images" :key="image.id">
         <!-- content type src path -->
         <img class="portfolio-image" @click="$emit('setIndex', imageIndex)" :src="image.fields.image.fields.file.url" alt="">
         <div class="portfolio-title">{{ image.fields.title }}</div>
